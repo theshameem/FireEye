@@ -19,6 +19,12 @@ def video_feed(request):
 					content_type='multipart/x-mixed-replace; boundary=frame')
 
 
+def prequsites(request):
+	return render(request, 'streamapp/prequsites.html')
+
+def about(request):
+	return render(request, 'streamapp/about.html')
+
 # def webcam_feed(request):
 # 	return StreamingHttpResponse(gen(IPWebCam()),
 # 					content_type='multipart/x-mixed-replace; boundary=frame')
