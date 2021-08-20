@@ -14,9 +14,10 @@ def gen(camera):
 				b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 def video_feed(request):
-	# detectOnce = False
-	return StreamingHttpResponse(gen(VideoCamera()),
-					content_type='multipart/x-mixed-replace; boundary=frame')
+	resp = StreamingHttpResponse(gen(VideoCamera()))
+	return render(request, 'livecamera.html', {'video': resp})
+	# return StreamingHttpResponse(gen(VideoCamera()),
+	# 				content_type='multipart/x-mixed-replace; boundary=frame')
 
 
 def prequsites(request):
